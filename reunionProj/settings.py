@@ -20,10 +20,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-hdt_puv+4ps5tf6275qlhx5ap)t+s&6x(dyg(g6axy5=n()9^3'
+SECRET_KEY = '1234567890poiuytrewqasdfghj'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*',"reunion-assingment.onrender.com"]
 
