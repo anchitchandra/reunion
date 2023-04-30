@@ -1,8 +1,15 @@
 from rest_framework import serializers
 from .models import User, Post, Comment
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
+
+class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
+    @classmethod
+    def get_token(cls, user):
+        token = super().get_token(user)
+        token['username'] = user.username
+        return token
 
 
-# Register new user
 class CreateUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
@@ -14,7 +21,6 @@ class CreateUserSerializer(serializers.ModelSerializer):
         return user
 
 
-# Get formatted user details with followers and following count
 class UserSerializer(serializers.ModelSerializer):
     following = serializers.SerializerMethodField()
     followers = serializers.SerializerMethodField()
@@ -31,7 +37,6 @@ class UserSerializer(serializers.ModelSerializer):
         return obj.followers.count()
 
 
-# Create and serialize new comment
 class CreateCommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
@@ -43,7 +48,6 @@ class CreateCommentSerializer(serializers.ModelSerializer):
         return comment
 
 
-# Get formatted comment
 class CommentSerializer(serializers.ModelSerializer):
     user = serializers.SerializerMethodField()
 
@@ -56,7 +60,6 @@ class CommentSerializer(serializers.ModelSerializer):
         return obj.user.username
 
 
-# Get formatted post with comments
 class PostSerializer(serializers.ModelSerializer):
     likes = serializers.SerializerMethodField()
     comments = serializers.SerializerMethodField()

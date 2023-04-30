@@ -25,11 +25,9 @@ from drf_yasg import openapi
 
 schema_view = get_schema_view(
     openapi.Info(
-        title="Reunion API",
+        title="Reunion",
         default_version='v1',
-        description="Reunion API",
-        terms_of_service="https://www.google.com/policies/terms/",
-        license=openapi.License(name="MIT License"),
+        description="Reunion",
     ),
     public=True,
     permission_classes=[permissions.AllowAny],
