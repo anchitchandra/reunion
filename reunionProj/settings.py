@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-hdt_puv+4ps5tf6275qlhx5ap)t+s&6x(dyg(g6axy5=n()9^3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*',"reunion-assingment.onrender.com"]
 
 
 # Application definition
